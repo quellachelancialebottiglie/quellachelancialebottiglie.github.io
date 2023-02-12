@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
+
+body{
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+p{
+    font-size: 1em;
+    line-height: 1.6em;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+.hide-mob{
+    display: none;
+}
+
+.menu img{
+    width: 1.5em;
+}
+
+.nav-wrap{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2.5em;
+}
+
+
+.logo{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+    order: 2;
+}
+
+.menu{
+    order: 1;
+    margin-top: 2%;
+}
+
+.search{
+    order: 3;
+    margin-top: 1%;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 20em;
+    position: relative;
+    top: 5em;
+
+}
+
+
+
+
+.card img{
+    max-width: 20em;
+    border-radius: 4%;
+    z-index: 0;
+  }
+
+  .text-container{
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 4em;
+      
+  }
+
+  .card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul li{
+      color: white;
+  }
