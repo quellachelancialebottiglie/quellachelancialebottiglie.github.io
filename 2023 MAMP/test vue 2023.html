@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .red{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: all .3s ease;
+        }
+
+        .muovi{
+            transform: translateX(300px);
+        }
+
+        .none{
+            display: none;
+        }
+
+        .searchbar{
+            width: 1rem;
+            height: 1rem;
+            background-color: lightgray;
+            border-radius: 100%;
+            border-left: 1px solid grey;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+            border-right: 1px solid grey;
+            transition: all 1s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #checkbox:checked ~ .searchContainer .searchbar{
+            width: 4rem;
+            border-right: none;
+            border-radius: 999em 0 0 999em;
+            justify-content: flex-start;
+            padding-left: .5rem;
+        }
+
+        #checkbox:checked ~ .searchContainer .closeBar{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+
+       #checkbox{
+        display: none;
+       } 
+
+       .searchContainer{
+        display: flex;
+        width: 300px;
+        overflow: hidden;
+        transition: all 1s ease;
+        justify-content: end;
+       }
+
+       .closeBar{
+        width: 1.5rem;
+        height: 1rem;
+        background-color: lightgray;
+        border-radius: 0 999em 999em 0;
+        display: flex;
+        justify-content: center;
+        border: 1px solid grey;
+        opacity: 0;
+        transition: all 1s ease;
+        transform: translateX(-20px);
+       }
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{test | trunc(10)}}</h1>
+        <button class="bottone" @click="cambia">cambia</button>
+        <button onclick="sposta()">colore</button>
+
+    </div>
+
+    <div class="red"></div>
+
+
+
+    <input type="checkbox" name="search" id="checkbox">
+
+    <label for="checkbox">label</label>
+    <div class="searchContainer">
+        <div class="searchbar">s</div>
+        <div class="closeBar">X</div>
+    </div>
+</body>
+
+<script>
+
+
+
+
+function sposta(){
+    document.querySelector(".red").classList.add("muovi");
+    setTimeout(none, 1000)
+}
+
+function none(){
+    document.querySelector(".red").classList.add("none");
+}
+
+
+
+
+Vue.filter('trunc', function (str, num) {
+  if (str.length > num){
+    return str.slice(0, num) + "..."
+  } else return str
+});
+
+
+
+
+    let vm
+
+    vm = {
+        el:"#app",
+        data: {
+            test: ""
+        },
+
+        methods: {
+            cambia: function(){
+                vm.data.test = "aslkdfjsdkjfalsdkfjasldkjf"
+            },
+
+            truncate(value, length) {
+            if (value.length > length) {
+                return value.substring(0, length) + "...";
+            } else {
+                return value;
+            }
+      },
+
+            cambiaAncora:function(){
+
+            }
+        },
+
+        mounted:function(){
+            vm.data.test = "antonio"
+        },
+
+
+
+
+
+    };
+
+    let app = new Vue(vm);
+
+
+
+let titolo = document.querySelector("h1").textContent;
+
+
+</script>
+</html>

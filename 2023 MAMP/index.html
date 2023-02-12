@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotidiano</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- <script src="clamp.js"></script> -->
+ 
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+
+            <nav>
+                <div class="nav-wrap">
+                    <div class="dark-btn-container">
+                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                    <div onclick="toggleTheme()" id="dark" class="dark-toggle"><div class="circle"></div></div>
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                    </div>
+
+                    <a href="index.html" class="logo">quotidiano</a>
+                    <!-- MENU CHECKBOX -->
+                    
+                    <input type="checkbox" class="checkmenu" id="checkbox">
+                    <label for="checkbox" class="menu-label">
+                        
+
+                        <!-- <img src="images/ham.svg" alt="hamburger-menu" class="menu hide-desk"> -->
+                        <!-- <span class="menu-span hide-desk"></span> -->
+                        <div class="ham-container">
+                            <div class="menu-span hide-desk"></div>
+                        </div>
+                    </label>
+                    <a href="#" class="hide-desk search">
+                        <i onclick="mobileSearch()" alt="search-icon" id="apriRicerca" class="fa fa-search search"></i>
+                        <i @click="avviaRicercaMob" alt="search-icon" id="apriRicerca" class="fa fa-search search-hidden move-aside"></i>
+                       
+                        
+                        <input @keydown.13="avviaRicercaMob" type="search" id="mobSearchBar" class="mobile-search hide-desk move-aside">
+                        
+                        <i onclick="closeMobileSearch()" alt="close-search" class="fa fa-close close-icon move-aside" id="search-close"></i>
+                        <div class="mob-filter-container move-aside">
+                            <input type="checkbox" id="ita">
+                            <input type="checkbox" id="eng">
+                            <label for="ita" class="mob-filter ita">🇮🇹</label>
+                            <label for="eng" class="mob-filter eng">🇬🇧</label>
+                        </div>
+                    </a>
+
+                    <div class="searchbar hide-mob show-desk">
+                        <input @keydown.enter="avviaRicerca" id="searchBar" type="search" class="search-term hide-mob"
+                            placeholder="Search">
+                        <span class="underline"></span>
+
+                        <button type="submit" class="submit hide-mob" @click="avviaRicerca"><img src="search-icon.svg"
+                                alt="search-icon" class="search-icon-button" target="_blank"></button>
+
+                                <div class="filter-container">
+                                    <div class="filter">🇮🇹</div>
+                                    <div class="filter">🇬🇧</div>
+                                </div>
+
+                    </div>
+
+
+                    <div class="slide-menu">
+
+                        <div class="top-menu-container">
+                            <div class="dark-btn-container-mob">
+                                <i class="fa fa-sun-o" aria-hidden="true"></i>
+                                <div onclick="toggleTheme()" id="dark" class="dark-toggle"><div class="circle"></div></div>
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                                </div>
+                            
+                            <label for="checkbox">
+                            <i class="fa fa-close"></i></div>
+                        </label>
+
+                        
+
+
+                        <ul>
+                            <li><a href="#">business</a></li>
+                            <li><a href="#">sport</a></li>
+                            <li><a href="#">tech</a></li>
+                            <li><a href="#">entertainment</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="menu-items-desk show-desk hide-mob">
+
+                        <ul class="show-desk hide-mob">
+                            <li><a href="#">business</a></li>
+                            <li><a href="#">sport</a></li>
+                            <li><a href="#">tech</a></li>
+                            <li><a href="#">entertainment</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </nav>
+
+
+
+
+
+
+
+            <div class="card-container">
+
+
+                <!-- LISTA ARTICOLI COMPLETA RICERCA -->
+                <div class="show-results move-aside">
+                    <button @click="showResults">
+                        <span>Show all results ({{articoli.length}})</span>
+                        <div id="plus2"></div>
+                    </button>
+                </div>
+
+                <!-- MOSTRA TUTTI RISULTATI -->
+                <div class="lista-risultati move-aside">
+                    <ul>
+                        <li v-for="el in articoli"><a target="_blank" :href=el.url>
+                                <h2>{{el.title}}</h2>
+                                <p>{{el.description}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+                <!-- <div class="card">
+            
+                    <div class="desk-topic-pol" id="section1">
+                        <h2>politics</h2>
+                    </div>
+            
+                    <div class="card-img">
+            
+                    </div>
+                    <a href="news.html">
+                        <div class="greyHideMob"></div>
+            
+                        <div class="text-container">
+            
+                            <h6 class="card-topic">POLITICS</h6>
+                            <div class="tit4">
+                                <h2 class="card-title">The art of growing and other</h2>
+                            </div>
+                            <div class="par4">
+                                <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+
+                <!-- MOBILE -->
+                <section>
+                    <div class="card">
+                
+                        <a :href=articoli[0].url>
+                
+                            <article>
+                                <header>
+                                    <figure>
+                                        <div class="mob-grey"></div>
+                                        <div class="card-img">
+                                            <img :src="articoli[0].urlToImage" alt="">
+                                        </div>
+                                    </figure>
+                                    <h2 class="card-topic">politics</h2>
+                                    <div class="text-container">
+                                        <div class="tit4">
+                                            <h1 id="mobClamp1" class="card-title">{{articoli[0].title}}</h1>
+                                        </div>
+                                        <div class="par4">
+                                            <p id="mobClampDesc1" class="card-par">{{articoli[0].description}}</p>
+                                        </div>
+                                    </div>
+                                </header>
+                            </article>
+                        </a>
+                
+                
+                
+                
+                
+                
+                
+                        <div class="multi">
+                            <article>
+                                <header>
+                                    <a :href=articoli[1].url>
+                                        <div class="multi0">
+                                            <h2 class="multi-news-title">{{articoli[1].title}}</h2>
+                                            <p class="multi-news">{{articoli[1].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=articoli[2].url>
+                                        <div class="multi1">
+                                            <h2 class="multi-news-title">{{articoli[2].title}}</h2>
+                                            <p class="multi-news">{{articoli[2].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=articoli[3].url>
+                                        <div class="multi2">
+                                            <h2 class="multi-news-title">{{articoli[3].title}}</h2>
+                                            <p class="multi-news">{{articoli[3].description}}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=articoli[4].url>
+                                        <div class="multi3">
+                                            <h2 class="multi-news-title">{{articoli[4].title}}</h2>
+                                            <p class="multi-news">{{articoli[4].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                
+                
+                
+                
+                            <article>
+                                <a :href=articoli[5].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{articoli[5].title}}</h2>
+                                        <p class="multi-news">{{articoli[5].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=articoli[6].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{articoli[6].title}}</h2>
+                                        <p class="multi-news">{{articoli[6].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=articoli[7].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{articoli[7].title}}</h2>
+                                        <p class="multi-news">{{articoli[7].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=articoli[8].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{articoli[8].title}}</h2>
+                                        <p class="multi-news">{{articoli[8].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                
+                
+                </section>
+
+                <!-- MOBILE SPORT -->
+
+                <section>
+                    <div class="card card-sport">
+                
+                        <a :href=sportHeadlines[0].url>
+                
+                            <article>
+                                <header>
+                                    <figure>
+                                        <div class="mob-grey"></div>
+                                        <div class="card-img">
+                                            <img :src="sportHeadlines[0].urlToImage" alt="">
+                                        </div>
+                                    </figure>
+                                    <h2 class="card-topic">sport</h2>
+                                    <div class="text-container">
+                                        <div class="tit4">
+                                            <h1 id="mobClamp1" class="card-title">{{sportHeadlines[0].title}}</h1>
+                                        </div>
+                                        <div class="par4">
+                                            <p id="mobClampDesc1" class="card-par">{{sportHeadlines[0].description}}</p>
+                                        </div>
+                                    </div>
+                                </header>
+                            </article>
+                        </a>
+                
+                
+                
+                
+                
+                
+                
+                        <div class="multi">
+                            <article>
+                                <header>
+                                    <a :href=sportHeadlines[1].url>
+                                        <div class="multi0">
+                                            <h2 class="multi-news-title">{{sportHeadlines[1].title}}</h2>
+                                            <p class="multi-news">{{sportHeadlines[1].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=sportHeadlines[2].url>
+                                        <div class="multi1">
+                                            <h2 class="multi-news-title">{{sportHeadlines[2].title}}</h2>
+                                            <p class="multi-news">{{sportHeadlines[2].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=sportHeadlines[3].url>
+                                        <div class="multi2">
+                                            <h2 class="multi-news-title">{{sportHeadlines[3].title}}</h2>
+                                            <p class="multi-news">{{sportHeadlines[3].description}}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <a :href=sportHeadlines[4].url>
+                                        <div class="multi3">
+                                            <h2 class="multi-news-title">{{sportHeadlines[4].title}}</h2>
+                                            <p class="multi-news">{{sportHeadlines[4].description}}</p>
+                                        </div>
+                                    </a>
+                                </header>
+                            </article>
+                
+                
+                
+                
+                            <article>
+                                <a :href=sportHeadlines[5].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{sportHeadlines[5].title}}</h2>
+                                        <p class="multi-news">{{sportHeadlines[5].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=sportHeadlines[6].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{sportHeadlines[6].title}}</h2>
+                                        <p class="multi-news">{{sportHeadlines[6].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=sportHeadlines[7].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{sportHeadlines[7].title}}</h2>
+                                        <p class="multi-news">{{sportHeadlines[7].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article>
+                                <a :href=sportHeadlines[8].url>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">{{sportHeadlines[8].title}}</h2>
+                                        <p class="multi-news">{{sportHeadlines[8].description}}</p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                
+                
+                </section>
+
+
+                <!-- JS -->
+                <!-- DESK -->
+                
+                <h2 class="move-aside" id="error">nessun risultato trovato <span><a href="index.html">home</a></span>
+                </h2> <!-- ERROR() NESSUN RISULTATO-->
+                <section>
+                    <article>
+                        <div class="desk-card-1">
+                            <div class="desk-topic-pol">
+                                <h2 class="nox" id="topic-ricerca">business</h2><span @click="chiudiRicerca"></span>
+                            </div>
+                            <header>
+                                <figure>
+                                    <div class="greyHideMob-desk"></div>
+                                    <div class="card-img-desk">
+                                        <img :src="articoli[0].urlToImage" alt="politics">
+                                    </div>
+                                </figure>
+                                <a target="_blank" :href=articoli[0].url>
+                                    <div class="text-container-desk">
+                                        <h1 id="provatest">{{articoli[0].title | trunc(100) }}</h1>
+                                        <div id="Mclamp0" class="desk-par">
+                                            <p>{{articoli[0].description | trunc(100) }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </header>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <div class="multi-photo">
+                        <article>
+                            <a target="_blank" :href=articoli[1].url>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{articoli[1].title | trunc(100) }}</h1>
+                                        <p id="Mclamp1">{{articoli[1].description| trunc(100) }}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="articoli[1].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article>
+                            <a target="_blank" :href=articoli[2].url>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{articoli[2].title| trunc(100) }}</em></h1>
+                                        <p id="Mclamp2">{{articoli[2].description| trunc(100) }}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="articoli[2].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                            </a>
+                        </article>
+
+                        <article>
+                            <a target="_blank" :href=articoli[3].url>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{articoli[3].title| trunc(100) }}</h1>
+                                        <p id="Mclamp3">{{articoli[3].description| trunc(100) }}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="articoli[3].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                            </a>
+                        </article>
+                </section>
+
+
+                <div class="multi-text">
+                    <article>
+                        <a target="_blank" :href=articoli[4].url>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{articoli[4].title| trunc(100) }}</h1>
+                                    <p id="clamp3">{{articoli[4].description| trunc(100) }}</p>
+                                </div>
+                            </header>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a target="_blank" :href=articoli[5].url>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{articoli[5].title| trunc(100) }}</h1>
+                                    <p id="clamp2">{{articoli[5].description| trunc(100) }}</p>
+                                </div>
+                            </header>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a target="_blank" :href=articoli[6].url>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{articoli[6].title |trunc(100) }}</h1>
+                                    <p id="clamp1">{{articoli[6].description | trunc(100) }}</p>
+                                </div>
+                            </header>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article>
+                        <a target="_blank" :href=articoli[7].url>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{articoli[7].title | trunc(100)}}</h1>
+                                    <p id="section2">{{articoli[7].description | trunc(100)}}</p>
+                                </div>
+                            </header>
+                        </div>
+                        </a>
+                    </article>
+
+                    <aside>
+                        <div class="readMore">
+                            <em>Read more</em>
+                            <span id="plus"></span>
+                        </div>
+                    </aside>
+                </div>
+
+
+
+                <section>
+                    <article>
+                        <div class="desk-card-2">
+                            <div class="desk-topic-spo">
+                                <h2>sport</h2>
+                            </div>
+                            <header>
+                                <figure>
+                                    <div class="greyHideMob-desk"></div>
+                                    <div class="card-img-desk">
+                                        <img :src="sportHeadlines[0].urlToImage" alt="">
+                                    </div>
+                                </figure>
+                                <a href="news-2.html">
+                                    <div class="text-container-desk">
+                                        <h1>{{sportHeadlines[0].title | trunc(100)}}</h1>
+                                        <div class="desk-par">
+                                            <p>{{sportHeadlines[0].description | trunc(100) }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </header>
+                        </div>
+                    </article>
+                </section>
+
+
+                <section>
+                    <div class="multi-photo-2">
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[1].title | trunc(100)}}</h1>
+                                        <p id="spoClamp1">{{sportHeadlines[1].description| trunc(100) }}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[1].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[2].title | trunc(100)}}</h1>
+                                        <p id="spoClamp2">{{sportHeadlines[2].description | trunc(100)}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[2].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[3].title | trunc(100)}}</h1>
+                                        <p id="spoClamp3">{{sportHeadlines[3].description| trunc(100) }}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[3].urlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+                </section>
+
+
+                <div class="multi-text-2">
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[4].title| trunc(100) }}</h1>
+                                    <p id="spoClamp4">{{sportHeadlines[4].description| trunc(100) }}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[5].title | trunc(100)}}</h1>
+                                    <p id="spoClamp5">{{sportHeadlines[5].description| trunc(100) }}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[6].title| trunc(100) }}</h1>
+                                    <p id="spoClamp6">{{sportHeadlines[6].description | trunc(100)}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[7].title | trunc(100)}}</h1>
+                                    <p id="spoClamp7">{{sportHeadlines[7].description | trunc(100)}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+
+                    <aside>
+                        <div class="readMore">
+                            <em>Read more</em>
+                            <span id="plus"></span>
+                        </div>
+                    </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <div class="card-2">
+                        <div class="card-img-2"></div>
+                        <a href="news.html">
+                            <div class="greyHideMob"></div>
+                            <div class="text-container">
+
+                                <h6 class="card-topic">SPORT</h6>
+                                <h2 class="card-title">Tizio sets a new record</h2>
+                                <div class="par4">
+                                    <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod
+                                        tempor
+                                        incididunt ut labore et dolore
+                                        magna aliqua.</p>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="multi">
+                            <div class="multi0">
+                                <h2 class="multi-news-title">Genghis khan's guide to sport excellence</h2>
+                                <p class="multi-news">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet,
+                                    quibusdam?</p>
+                            </div>
+                            <div class="multi1">
+                                <h2 class="multi-news-title">The hidden agenda of sport</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus
+                                    quod
+                                    earum
+                                    ullam dicta nemo minima! Necessitatibus?</p>
+                            </div>
+                            <div class="multi2">
+                                <h2 class="multi-news-title">What the pope can teach you about sport</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam,
+                                    mollitia?
+                                </p>
+                            </div>
+                            <div class="multi3">
+                                <h2 class="multi-news-title">Being a rockstar in your industry is a matter of sport</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
+                                    quos sunt
+                                    numquam.
+                                    Repellendus?</p>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <section>
+                        <div class="card">
+
+                            <a href="news-2.html">
+                                <article>
+                                    <header>
+                                        <figure>
+                                            <div class="mob-grey"></div>
+                                            <div class="card-img">
+                                                <img src="" alt="">
+                                            </div>
+                                        </figure>
+                                        <h2 class="card-topic">sport</h2>
+                                        <div class="text-container">
+                                            <div class="tit4">
+                                                <h1 class="card-title">Tizio sets a new record</h1>
+                                            </div>
+                                            <div class="par4">
+                                                <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit, sed do eiusmod
+                                                    tempor
+                                                    incididunt ut labore et dolore
+                                                    magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </header>
+                                </article>
+                            </a>
+
+
+
+
+
+
+
+                            <div class="multi">
+                                <article>
+                                    <header>
+                                        <div class="multi0">
+                                            <h2 class="multi-news-title">Genghis khan's guide to sport excellence</h2>
+                                            <p class="multi-news">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                                elit. Eveniet,
+                                                quibusdam?</p>
+                                        </div>
+                                    </header>
+                                </article>
+                                <article>
+                                    <header>
+                                        <div class="multi1">
+                                            <h2 class="multi-news-title">The hidden agenda of sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                                elit. Possimus quod
+                                                earum
+                                                ullam dicta nemo minima! Necessitatibus?</p>
+                                        </div>
+                                    </header>
+                                </article>
+                                <article>
+                                    <header>
+                                        <div class="multi2">
+                                            <h2 class="multi-news-title">What the pope can teach you about sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Veniam, mollitia?
+                                            </p>
+                                        </div>
+                                    </header>
+                                </article>
+                                <article>
+                                    <header>
+                                        <div class="multi3">
+                                            <h2 class="multi-news-title">Being a rockstar in your industry is a matter
+                                                of sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                elit. Error quos sunt
+                                                numquam.
+                                                Repellendus?</p>
+                                        </div>
+                                    </header>
+                                </article>
+
+
+
+
+                                <article>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">Sweden upset Germany to reach World Cup semis</h2>
+                                        <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Error quos sunt
+                                            numquam.
+                                            Repellendus?</p>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">More things about it</h2>
+                                        <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Error quos sunt
+                                            numquam.
+                                            Repellendus?</p>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">Actually a lot of things</h2>
+                                        <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Error quos sunt
+                                            numquam.
+                                            Repellendus?</p>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="multi-t">
+                                        <h2 class="multi-news-title">Last title for now</h2>
+                                        <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Error quos sunt
+                                            numquam.
+                                            Repellendus?</p>
+                                    </div>
+                                </article>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+
+
+
+
+                <div class="card-text gridLay">
+                    <a href="news.html">
+                        <div class="text-container gridLay">
+
+                            <h6 class="card-topic gridLay">TECH</h6>
+                            <h2 class="card-title gridLay">Short review of Tesla Model Y</h2>
+                            <div class="par4 gridLay">
+                                <p class="card-par gridLay">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do
+                                    eiusmod tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="card-text-1 gridLay">
+                    <a href="news.html">
+                        <div class="text-container gridLay">
+
+                            <h6 class="card-topic gridLay">BUSINESS</h6>
+                            <h2 class="card-title gridLay">Insider trading is a lie</h2>
+                            <div class="par4 gridLay">
+                                <p class="card-par gridLay">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do
+                                    eiusmod tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                <div class="card-3 gridLay">
+                    <div class="card-img-3"></div>
+                    <a href="news.html">
+                        <div class="greyHideMob"></div>
+                        <div class="text-container">
+
+                            <h6 class="card-topic">SPORT</h6>
+                            <h2 class="card-title">Tizio sets a new record</h2>
+                            <div class="par4">
+                                <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+            
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <!-- RISULTATI -->
+        <!-- <div class="search-results">
+            <div id="app1">
+        
+    
+    
+                <ul>
+                    <li v-for="articoli in risultatiUtente"><h1>{{articoli.title}}</h1>
+                        <p>{{articoli.description}}</p>
+                    
+                    </li>
+                </ul>
+            
+            
+            
+            
+            </div>
+        </div> -->
+
+
+
+
+    </div>
+
+
+
+    <!-- <div class="container">
+    <div class="card-container">
+
+    <div id="app">
+        <section>
+            <article>
+                <div class="desk-card-1">
+                    <div class="desk-topic-spo">
+                        <h2>sport</h2>
+                    </div>
+                    <header>
+                        <figure>
+                            <div class="greyHideMob-desk"></div>
+                            <div class="card-img-desk">
+                                <img :src="headlines[1].UrlToImage" alt="">
+                            </div>
+                        </figure>
+                        <a href="news-2.html">
+                            <div class="text-container-desk">
+                                <h1>{{headlines[1].Title}}</h1>
+                                <div class="desk-par">
+                                    <p>{{headlines[1].Description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </header>
+                </div>
+            </article>
+        </section>
+    
+    
+        <section>
+            <div class="multi-photo-2">
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[2].Title}}</h1>
+                                <p>{{headlines[2].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[2].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[3].Title}}</h1>
+                                <p>{{headlines[3].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[3].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[4].Title}}</h1>
+                                <p>{{headlines[4].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[4].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+        </section>
+
+        <div class="multi-text">
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[5].Title}}</h1>
+                            <p>{{headlines[5].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[6].Title}}</h1>
+                            <p>{{headlines[6].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[7].Title}}</h1>
+                            <p>{{headlines[7].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[8].Title}}</h1>
+                            <p id="section2">{{headlines[8].Descirption}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+
+            <aside>
+                <div class="readMore">
+                    <em>Read more</em>
+                    <span id="plus"></span>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+</div>-->
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+    <script src="js.js"></script>
+
+
+</body>
+
+</html>
+
+
+

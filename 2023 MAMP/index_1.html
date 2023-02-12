@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotidiano</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <script src="vue.js"></script>
+    <script src="axios.js"></script>
+    <script src="clamp.js"></script>
+ 
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container">
+
+            <nav>
+                <div class="nav-wrap">
+    
+                    <a href="#" class="logo">quotidiano</a>
+    
+                    <label for="checkbox" class="menu-label">
+    
+                        <!-- <img src="images/ham.svg" alt="hamburger-menu" class="menu hide-desk"> -->
+                        <!-- <span class="menu-span hide-desk"></span> -->
+                        <div class="ham-container">
+                            <div class="menu-span hide-desk"></div>
+                        </div>
+                    </label>
+                    <a href="#" class="hide-desk search">
+                        <img src="images/search-icon-main.svg" alt="search-icon" class="search">
+                    </a>
+
+                    <div class="searchbar hide-mob show-desk">
+                        <input v-model="search" type="search" class="search-term hide-mob" placeholder="Search something">
+                        <span class="underline"></span>
+                        
+                        <button type="submit" class="submit hide-mob" @click="avviaRicerca"><img src="search-icon.svg" alt="search-icon" class="search-icon-button"></button>
+                        
+                    </div>
+
+    
+                    <div class="menu-items-desk show-desk hide-mob">
+    
+                        <ul class="show-desk hide-mob">
+                            <li><a href="#">business</a></li>
+                            <li><a href="#">sport</a></li>
+                            <li><a href="#">tech</a></li>
+                            <li><a href="#">entertainment</a></li>
+                        </ul>
+                    </div>
+    
+                </div>
+    
+            </nav>
+    
+        
+    
+    
+    
+    
+    
+        <div class="card-container">
+            
+            
+            
+            
+                <!-- <div class="card">
+            
+                    <div class="desk-topic-pol" id="section1">
+                        <h2>politics</h2>
+                    </div>
+            
+                    <div class="card-img">
+            
+                    </div>
+                    <a href="news.html">
+                        <div class="greyHideMob"></div>
+            
+                        <div class="text-container">
+            
+                            <h6 class="card-topic">POLITICS</h6>
+                            <div class="tit4">
+                                <h2 class="card-title">The art of growing and other</h2>
+                            </div>
+                            <div class="par4">
+                                <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore
+                                    magna aliqua.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+    
+    
+            <section>
+                <div class="card">
+                    
+                    <a href="news.html">
+                    
+                        <article>
+                            <header>                
+                                <figure>
+                                    <div class="mob-grey"></div>
+                                    <div class="card-img">
+                                        <img src="images/pol_1.jpg" alt="">
+                                    </div>
+                                </figure>
+                                <h2 class="card-topic">politics</h2>
+                                <div class="text-container">
+                                    <div class="tit4">
+                                        <h1 class="card-title">The art of growing and other</h1>
+                                    </div>
+                                    <div class="par4">
+                                        <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore
+                                            magna aliqua.</p>
+                                    </div>
+                                </div>
+                            </header>
+                        </article>
+                    </a>
+                    
+        
+        
+        
+        
+        
+                    
+                    <div class="multi">
+                        <article>
+                            <header>
+                                <div class="multi0">
+                                    <h2 class="multi-news-title">Another semi short title</h2>
+                                    <p class="multi-news">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet,
+                                        quibusdam?</p>
+                                </div>
+                            </header>
+                        </article>
+                        <article>
+                            <header>
+                                <div class="multi1">
+                                    <h2 class="multi-news-title">The art of growing</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus quod
+                                        earum
+                                        ullam dicta nemo minima! Necessitatibus?</p>
+                                </div>
+                            </header>
+                        </article>
+                        <article>
+                            <header>
+                                <div class="multi2">
+                                    <h2 class="multi-news-title">We documented Donald Trump</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitia?
+                                    </p>
+                                </div>
+                            </header>
+                        </article>
+                        <article>
+                            <header>
+                                <div class="multi3">
+                                    <h2 class="multi-news-title">The a - z of politics</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                        numquam.
+                                        Repellendus?</p>
+                                </div>
+                            </header>
+                        </article>
+    
+    
+                        
+    
+                        <article>
+                            <div class="multi-t">
+                                <h2 class="multi-news-title">Politics relevant title</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                    numquam.
+                                    Repellendus?</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="multi-t">
+                                <h2 class="multi-news-title">More things about it</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                    numquam.
+                                    Repellendus?</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="multi-t">
+                                <h2 class="multi-news-title">Actually a lot of things</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                    numquam.
+                                    Repellendus?</p>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="multi-t">
+                                <h2 class="multi-news-title">Last title for now</h2>
+                                <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                    numquam.
+                                    Repellendus?</p>
+                            </div>
+                        </article>
+                    </div>
+        
+                
+            </section>
+                
+    
+    
+                <section>
+                    <article>
+                        <div class="desk-card-1">
+                            <div class="desk-topic-pol">
+                                <h2>business</h2>
+                            </div>
+                            <header>
+                                <figure>
+                                    <div class="greyHideMob-desk"></div>
+                                    <div class="card-img-desk">
+                                        <img :src="headlines[0].UrlToImage" alt="politics">
+                                    </div>
+                                </figure>
+                                <a href="news.html">
+                                    <div class="text-container-desk">
+                                        <h1>{{headlines[0].Title}}</h1>
+                                        <div class="desk-par">
+                                            <p>{{headlines[0].Description}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </header>
+                        </div>
+                    </article>
+                </section>
+            
+                <section>
+                    <div class="multi-photo">
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{headlines[1].Title}}</h1>
+                                        <p id="Mclamp1">{{headlines[1].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="headlines[1].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+            
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{headlines[2].Title}}</em></h1>
+                                        <p id="Mclamp2">{{headlines[2].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="headlines[2].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+            
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{headlines[3].Title}}</h1>
+                                        <p id="Mclamp3">{{headlines[3].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="headlines[3].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+                </section>
+            
+            
+                <div class="multi-text">
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{headlines[4].Title}}</h1>
+                                    <p id="clamp3">{{headlines[4].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{headlines[5].Title}}</h1>
+                                    <p id="clamp2">{{headlines[5].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{headlines[6].Title}}</h1>
+                                    <p id="clamp1">{{headlines[6].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{headlines[7].Title}}</h1>
+                                    <p id="section2">{{headlines[7].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+    
+                    <aside>
+                        <div class="readMore">
+                            <em>Read more</em>
+                            <span id="plus"></span>
+                        </div>
+                    </aside>
+                </div>
+    
+    
+    
+                <section>
+                    <article>
+                        <div class="desk-card-2">
+                            <div class="desk-topic-spo">
+                                <h2>sport</h2>
+                            </div>
+                            <header>
+                                <figure>
+                                    <div class="greyHideMob-desk"></div>
+                                    <div class="card-img-desk">
+                                        <img :src="sportHeadlines[0].UrlToImage" alt="">
+                                    </div>
+                                </figure>
+                                <a href="news-2.html">
+                                    <div class="text-container-desk">
+                                        <h1>{{sportHeadlines[0].Title}}</h1>
+                                        <div class="desk-par">
+                                            <p>{{sportHeadlines[0].Description}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </header>
+                        </div>
+                    </article>
+                </section>
+    
+    
+                <section>
+                    <div class="multi-photo-2">
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[1].Title}}</h1>
+                                        <p id="spoClamp1">{{sportHeadlines[1].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[1].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+            
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[2].Title}}</h1>
+                                        <p id="spoClamp2">{{sportHeadlines[2].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[2].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+            
+                        <article>
+                            <div class="m-n-1">
+                                <header>
+                                    <div class="m-text">
+                                        <h1>{{sportHeadlines[3].Title}}</h1>
+                                        <p id="spoClamp3">{{sportHeadlines[3].Description}}</p>
+                                    </div>
+                                    <figure>
+                                        <div class="m-img">
+                                            <img :src="sportHeadlines[3].UrlToImage" alt="tech">
+                                            <div class="greyHideMob"></div>
+                                        </div>
+                                    </figure>
+                                </header>
+                            </div>
+                        </article>
+                </section>
+    
+    
+                <div class="multi-text-2">
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[4].Title}}</h1>
+                                    <p id="spoClamp4">{{sportHeadlines[4].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[5].Title}}</h1>
+                                    <p id="spoClamp5">{{sportHeadlines[5].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[6].Title}}</h1>
+                                    <p id="spoClamp6">{{sportHeadlines[6].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+            
+                    <article>
+                        <div class="m-t-1">
+                            <header>
+                                <div class="m-t-text">
+                                    <h1>{{sportHeadlines[7].Title}}</h1>
+                                    <p id="spoClamp7">{{sportHeadlines[7].Description}}</p>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+    
+                    <aside>
+                        <div class="readMore">
+                            <em>Read more</em>
+                            <span id="plus"></span>
+                        </div>
+                    </aside>
+    
+                    <div>
+
+    
+                </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- <div class="card-2">
+                <div class="card-img-2"></div>
+                <a href="news.html">
+                    <div class="greyHideMob"></div>
+                    <div class="text-container">
+            
+                        <h6 class="card-topic">SPORT</h6>
+                        <h2 class="card-title">Tizio sets a new record</h2>
+                        <div class="par4">
+                            <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor
+                                incididunt ut labore et dolore
+                                magna aliqua.</p>
+                        </div>
+                    </div>
+                </a>
+            
+            
+                <div class="multi">
+                    <div class="multi0">
+                        <h2 class="multi-news-title">Genghis khan's guide to sport excellence</h2>
+                        <p class="multi-news">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet,
+                            quibusdam?</p>
+                    </div>
+                    <div class="multi1">
+                        <h2 class="multi-news-title">The hidden agenda of sport</h2>
+                        <p class="multi-news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus quod
+                            earum
+                            ullam dicta nemo minima! Necessitatibus?</p>
+                    </div>
+                    <div class="multi2">
+                        <h2 class="multi-news-title">What the pope can teach you about sport</h2>
+                        <p class="multi-news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitia?
+                        </p>
+                    </div>
+                    <div class="multi3">
+                        <h2 class="multi-news-title">Being a rockstar in your industry is a matter of sport</h2>
+                        <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                            numquam.
+                            Repellendus?</p>
+                    </div>
+                </div>
+            
+            
+            
+            
+            </div> -->
+    
+    
+            <section>
+                    <div class="card">
+                        
+                        <a href="news-2.html">      
+                            <article>
+                                <header>
+                                    <figure>
+                                        <div class="mob-grey"></div>
+                                        <div class="card-img">
+                                            <img src="images/sport_1.jpg" alt="">
+                                        </div>
+                                    </figure>
+                                    <h2 class="card-topic">sport</h2>
+                                    <div class="text-container">
+                                        <div class="tit4">
+                                            <h1 class="card-title">Tizio sets a new record</h1>
+                                        </div>
+                                        <div class="par4">
+                                            <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                tempor
+                                                incididunt ut labore et dolore
+                                                magna aliqua.</p>
+                                        </div>
+                                    </div>
+                                </header>
+                            </article>
+                        </a>
+                        
+            
+            
+            
+            
+            
+                        
+                        <div class="multi">
+                            <article>
+                                <header>
+                                    <div class="multi0">
+                                            <h2 class="multi-news-title">Genghis khan's guide to sport excellence</h2>
+                                            <p class="multi-news">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet,
+                                                quibusdam?</p>
+                                    </div>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <div class="multi1">
+                                            <h2 class="multi-news-title">The hidden agenda of sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus quod
+                                                earum
+                                                ullam dicta nemo minima! Necessitatibus?</p>
+                                    </div>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <div class="multi2">
+                                            <h2 class="multi-news-title">What the pope can teach you about sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, mollitia?
+                                            </p>
+                                    </div>
+                                </header>
+                            </article>
+                            <article>
+                                <header>
+                                    <div class="multi3">
+                                            <h2 class="multi-news-title">Being a rockstar in your industry is a matter of sport</h2>
+                                            <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                                numquam.
+                                                Repellendus?</p>
+                                    </div>
+                                </header>
+                            </article>
+        
+        
+                            
+        
+                            <article>
+                                <div class="multi-t">
+                                    <h2 class="multi-news-title">Sweden upset Germany to reach World Cup semis</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                        numquam.
+                                        Repellendus?</p>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="multi-t">
+                                    <h2 class="multi-news-title">More things about it</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                        numquam.
+                                        Repellendus?</p>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="multi-t">
+                                    <h2 class="multi-news-title">Actually a lot of things</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                        numquam.
+                                        Repellendus?</p>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="multi-t">
+                                    <h2 class="multi-news-title">Last title for now</h2>
+                                    <p class="multi-news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quos sunt
+                                        numquam.
+                                        Repellendus?</p>
+                                </div>
+                            </article>
+                        </div>
+            
+                    </div>
+            </section>
+        </div>  
+    
+    
+    
+    
+            
+            <div class="card-text gridLay">
+                <a href="news.html">
+                    <div class="text-container gridLay">
+            
+                        <h6 class="card-topic gridLay">TECH</h6>
+                        <h2 class="card-title gridLay">Short review of Tesla Model Y</h2>
+                        <div class="par4 gridLay">
+                            <p class="card-par gridLay">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor
+                                incididunt ut labore et dolore
+                                magna aliqua.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            <div class="card-text-1 gridLay">
+                <a href="news.html">
+                    <div class="text-container gridLay">
+            
+                        <h6 class="card-topic gridLay">BUSINESS</h6>
+                        <h2 class="card-title gridLay">Insider trading is a lie</h2>
+                        <div class="par4 gridLay">
+                            <p class="card-par gridLay">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor
+                                incididunt ut labore et dolore
+                                magna aliqua.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            
+            <div class="card-3 gridLay">
+                <div class="card-img-3"></div>
+                <a href="news.html">
+                    <div class="greyHideMob"></div>
+                    <div class="text-container">
+            
+                        <h6 class="card-topic">SPORT</h6>
+                        <h2 class="card-title">Tizio sets a new record</h2>
+                        <div class="par4">
+                            <p class="card-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor
+                                incididunt ut labore et dolore
+                                magna aliqua.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            
+            
+            
+            
+            </div>
+            
+            </div>
+
+
+       
+
+    </div>
+
+<!-- <div class="container">
+    <div class="card-container">
+
+    <div id="app">
+        <section>
+            <article>
+                <div class="desk-card-1">
+                    <div class="desk-topic-spo">
+                        <h2>sport</h2>
+                    </div>
+                    <header>
+                        <figure>
+                            <div class="greyHideMob-desk"></div>
+                            <div class="card-img-desk">
+                                <img :src="headlines[1].UrlToImage" alt="">
+                            </div>
+                        </figure>
+                        <a href="news-2.html">
+                            <div class="text-container-desk">
+                                <h1>{{headlines[1].Title}}</h1>
+                                <div class="desk-par">
+                                    <p>{{headlines[1].Description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </header>
+                </div>
+            </article>
+        </section>
+    
+    
+        <section>
+            <div class="multi-photo-2">
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[2].Title}}</h1>
+                                <p>{{headlines[2].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[2].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[3].Title}}</h1>
+                                <p>{{headlines[3].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[3].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+    
+                <article>
+                    <div class="m-n-1">
+                        <header>
+                            <div class="m-text">
+                                <h1>{{headlines[4].Title}}</h1>
+                                <p>{{headlines[4].Description}}</p>
+                            </div>
+                            <figure>
+                                <div class="m-img">
+                                    <img :src="headlines[4].UrlToImage" alt="tech">
+                                    <div class="greyHideMob"></div>
+                                </div>
+                            </figure>
+                        </header>
+                    </div>
+                </article>
+        </section>
+
+        <div class="multi-text">
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[5].Title}}</h1>
+                            <p>{{headlines[5].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[6].Title}}</h1>
+                            <p>{{headlines[6].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[7].Title}}</h1>
+                            <p>{{headlines[7].Description}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+    
+            <article>
+                <div class="m-t-1">
+                    <header>
+                        <div class="m-t-text">
+                            <h1>{{headlines[8].Title}}</h1>
+                            <p id="section2">{{headlines[8].Descirption}}</p>
+                        </div>
+                    </header>
+                </div>
+            </article>
+
+            <aside>
+                <div class="readMore">
+                    <em>Read more</em>
+                    <span id="plus"></span>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+</div>
+</div> -->
+
+
+    <!-- <section>
+        <div id="app">
+                <h1 class="vuenonso">{{headlines[1].Title}}</h1>
+                <img :src="headlines[1].UrlToImage">
+                <p class="desc" >{{headlines[1].Description}}</p>
+        </div>
+
+    </section> -->
+
+
+
+
+    
+
+
+    
+
+        
+
+
+        
+
+
+
+        <!-- <div id="app">
+            <h1 v-for="a in headlines">{{a.Title}}</h1>
+        </div> -->
+        
+        
+<script src="js.js"></script>
+</body>
+
+</html>
+
+
+
